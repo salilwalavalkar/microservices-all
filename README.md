@@ -4,6 +4,6 @@
 #### Show all the routes available for Zuul that are discovered by Eureka:
 http://localhost:8762/routes
 
-#### Load-Balancing Example (Run 2 clients using different ports):
-http://localhost:8762/spring-cloud-eureka-client/greeting
+#### Load-Balancing Example (Note edge-service port used):
+http://localhost:8762/sample-client/client
 

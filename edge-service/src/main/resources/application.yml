@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:8762}
+
+spring:
+  application:
+    name: edge-service
+
+zuul:
+  routes:
+    sample-client:
+      path: /client/**
+      serviceId: sample-client
+
+# Edge server to register itself as a service in Eureka and to run on port 8762 as default.
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

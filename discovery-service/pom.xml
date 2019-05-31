@@ -44,8 +44,6 @@
                     <version>${spring-boot-maven-plugin.version}</version>
                     <configuration>
                         <mainClass>com.salil.ms.discovery.DiscoveryServiceApplication</mainClass>
-                        <source>1.8</source>
-                        <target>1.8</target>
                     </configuration>
                     <executions>
                         <execution>

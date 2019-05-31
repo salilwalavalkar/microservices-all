@@ -13,6 +13,8 @@ services:
       driver: json-file
     networks:
       - ms-all-network
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service-app:8761/eureka
 
   edge-service-app:
     image: edge-service-img
@@ -25,9 +27,12 @@ services:
     logging:
       driver: json-file
     networks:
-    - ms-all-network
+      - ms-all-network
     depends_on:
       - discovery-service-app
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service-app:8761/eureka
+#    command: ["./wait-for.sh", "localhost:8761"]
 
   sample-client-app:
     image: sample-client-img
@@ -44,6 +49,9 @@ services:
     depends_on:
       - discovery-service-app
       - edge-service-app
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://discovery-service-app:8761/eureka
+#    command: ["./wait-for.sh", "localhost:8762"]
 
 networks:
   ms-all-network:
